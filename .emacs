@@ -1,3 +1,4 @@
+
 ;; Set up the load path
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
@@ -10,7 +11,8 @@
       (require 'color-theme-tangotango)
       (color-theme-tangotango)
       ;; Emacs package manager.
-      (require 'package)))
+      (require 'package))
+  (load-theme 'wombat))
 
 ;; Change the default font and size if we are in window mode.
 (if window-system
