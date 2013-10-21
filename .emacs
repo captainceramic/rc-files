@@ -6,10 +6,18 @@
 ;; Loads that are only needed for emacs 23 or earlier.
 (if (< emacs-major-version 24)
     (progn
-      ;; Load the tangotango colour theme.
+      ;; Load the colour theme package.
       (require 'color-theme)
-      (require 'color-theme-tangotango)
-      (color-theme-tangotango)
+      
+      ;; Load all the theme files that are present.
+      (setq file-names
+	    (directory-files "~/.emacs.d/themes" nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))
+      (mapcar 'require (mapcar 'intern (mapcar 'file-name-sans-extension file-names)))
+     
+      ;; Load the actual theme.
+      ;;(color-theme-tangotango)
+      (color-theme-solarized-light)
+      
       ;; Emacs package manager.
       (require 'package))
   ;; If emacs > 24, load wombat theme.
