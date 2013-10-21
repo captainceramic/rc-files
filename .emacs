@@ -12,13 +12,13 @@
       (color-theme-tangotango)
       ;; Emacs package manager.
       (require 'package))
+  ;; If emacs > 24, load wombat theme.
   (load-theme 'wombat))
 
 ;; Change the default font and size if we are in window mode.
 (if window-system
     (progn
       (set-default-font "Source Code Pro-12")))
-
 
 ;; Add the package archives and start up package manager.
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
