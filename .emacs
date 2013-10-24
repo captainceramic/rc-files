@@ -3,9 +3,18 @@
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
+;; Add the package archives and start up package manager.
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+			 ("marmalade" . "http://marmalade-repo.org/packages/")
+			 ("melpa" . "http://melpa.milkbox.net/packages/")))
+
 ;; Loads that are only needed for emacs 23 or earlier.
 (if (< emacs-major-version 24)
     (progn
+      ;; Emacs package manager.
+      (require 'package)
+      (package-initialize)
+
       ;; Load the colour theme package.
       (require 'color-theme)
       
@@ -16,10 +25,8 @@
      
       ;; Load the actual theme.
       ;;(color-theme-tangotango)
-      (color-theme-solarized-light)
+      (color-theme-solarized-light))
       
-      ;; Emacs package manager.
-      (require 'package))
   ;; If emacs > 24, load wombat theme.
   (load-theme 'wombat))
 
@@ -27,12 +34,6 @@
 (if window-system
     (progn
       (set-default-font "Source Code Pro-12")))
-
-;; Add the package archives and start up package manager.
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")))
-(package-initialize)
 
 ;; Change the backup settings to avoid cluttering the tree.
 (setq
