@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*-
+;; -*- emacs-lisp -*- <13/12/06 09:36:20 /home/bed02b/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -70,4 +70,5 @@
   ("inline-compress" "gzip")
   ("inline-decompress" "gzip -d")
   ("ls" "/bin/ls --color=never")
-  ("ls-dired" t)))
+  ("ls-dired" t)
+  ("busybox" nil)))
