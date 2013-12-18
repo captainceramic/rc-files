@@ -25,7 +25,7 @@
      
       ;; Load the actual theme.
       ;;(color-theme-tangotango)
-      (color-theme-solarized-light))
+      (color-theme-solarized-dark))
       
   ;; If emacs > 24, load wombat theme.
   (load-theme 'wombat))
