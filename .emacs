@@ -22,11 +22,12 @@
       (setq file-names
 	    (directory-files "~/.emacs.d/themes" nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))
       (mapcar 'require (mapcar 'intern (mapcar 'file-name-sans-extension file-names)))
-     
-      ;; Load the actual theme.
-      ;;(color-theme-tangotango)
-      (color-theme-solarized-dark))
       
+      ;; Load the actual theme.
+      (if (window-system)
+	  (color-theme-solarized-dark)
+	(color-theme-tangotango)))
+  
   ;; If emacs > 24, load wombat theme.
   (load-theme 'wombat))
 
